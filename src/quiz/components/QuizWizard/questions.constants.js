@@ -39,7 +39,7 @@ const questions = [
     id: "hair_loss",
     question: "How much hair do you lose every time you brush your hair?",
     desc: "",
-    options: ["A Few Hair Strands", "A Dozen Hair Strands", "More Than A Dozen Hair Strands"]
+    options: ["A Few Hair Strands", "50 to 100 Strands", "100+ Strands"]
   },
   {
     id: "medications",

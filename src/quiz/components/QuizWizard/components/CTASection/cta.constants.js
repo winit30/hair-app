@@ -55,7 +55,7 @@ const getHairReport = (profile) => {
       {
         key: 'Hair Loss',
         value: hair_loss,
-        action: 'All Good'
+        action: hair_loss === '100+ Strands' ? 'Action required' : 'All Good'
       },
       {
         key: 'Scalp',
@@ -126,14 +126,17 @@ const hairGoal = [
 
 const getHairGoal = (goal, dandruff) => {
   const filterGoals = hairGoal.filter((item) => {
-    return goal.includes(item.key);
+    return goal.includes(item.key) || (item.key === 'Dandruff' && dandruff === 'Yes');
   }).map((item) => {
     item.active = true;
     return item;
   });
 
   const filterRest = hairGoal.filter((item) => {
-    return !goal.includes(item.key);
+    if((item.key === 'Dandruff' && dandruff === 'Yes')) {
+      return false
+    }
+    return !goal.includes(item.key)
   });
 
   return [

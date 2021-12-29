@@ -6,7 +6,7 @@ const Select = ({options, handleAnswerClick, answer}) => {
     <>
       {options.map((item, index) => {
         return (
-          <div className="col-sm-12 welcome-form" key={item}>
+          <div className="col-md-12 welcome-form" key={item}>
               <button
                 type="button"
                 className={`btn ${answer === item ? 'btn-info' : 'btn-outline-secondary'} same-width`}

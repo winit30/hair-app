@@ -7,7 +7,7 @@ const Quiz = () => {
 
   const loadBanner = () => (
     <div className="row justify-content-center">
-      <div className="col-sm-6">
+      <div className="col-md-6">
         <div className="heading-banner"></div>
       </div>
     </div>
@@ -15,7 +15,7 @@ const Quiz = () => {
 
   const loadFooter = () => (
     <div className="row justify-content-center">
-      <div className="col-sm-8 quiz-wizard">
+      <div className="col-md-8 quiz-wizard">
         <p className="font-small">Powered by ProductDais</p>
       </div>
     </div>

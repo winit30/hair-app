@@ -31,13 +31,13 @@ const Welcome = ({ setQuizStatus }) => {
    return (
      <div>
        <div className="row justify-content-center welcome-form">
-         <div className="col-sm-6 welcome-form">
+         <div className="col-md-6 welcome-form">
            <h3>Welcome</h3>
            <p>Think your hair is healthy? The answer might surprise you. Answer a few questions & get a picture of your hairs current health and get tips on how to nurse it back to a shiny.</p>
          </div>
        </div>
        <div className="row justify-content-center">
-         <div className="col-sm-4 welcome-form">
+         <div className="col-md-4 welcome-form">
            <div className="mb-3">
              <label htmlFor="exampleInputEmail1" className="form-label">What is your name?</label>
              <input type="input" className="form-control" placeholder="Enter Your Name" onChange={handleChange} />
@@ -48,7 +48,7 @@ const Welcome = ({ setQuizStatus }) => {
          </div>
        </div>
        <div className="row justify-content-center">
-           <div className="col-sm-6 welcome-form">
+           <div className="col-md-6 welcome-form">
              <button type="button" className="btn btn-danger btn-lg" onClick={startAnalysis}>Start My Analysis</button>
            </div>
        </div>

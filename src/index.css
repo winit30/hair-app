@@ -93,12 +93,6 @@ main{
   }
 }
 
-@media only screen and (max-width: 785px) {
-  .heading-banner {
-    height: 200px;
-  }
-}
-
 @media only screen and (max-width: 480px) {
   .heading-banner {
     height: 250px;

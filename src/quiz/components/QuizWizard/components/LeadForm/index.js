@@ -51,7 +51,7 @@ const LeadForm = ({ confirmEmail, setLoading }) => {
   return (
     <div>
       <div className="row justify-content-center">
-        <div className="col-sm-6 quiz-wizard">
+        <div className="col-md-6 quiz-wizard">
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">Where should we send your results??</label>
             <input type="email" className="form-control" placeholder="Enter Your Email" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleEmailChange}/>
@@ -60,7 +60,7 @@ const LeadForm = ({ confirmEmail, setLoading }) => {
         </div>
       </div>
       <div className="row justify-content-center">
-          <div className="col-sm-6">
+          <div className="col-md-6">
             <div className="welcome-form">
               <button type="button" className="btn btn-danger btn-lg" onClick={handleComfirm}>Confirm</button>
             </div>
