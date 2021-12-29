@@ -30,8 +30,8 @@ const Welcome = ({ setQuizStatus }) => {
 
    return (
      <div>
-       <div className="row justify-content-center">
-         <div className="col-sm-6 quiz-wizard">
+       <div className="row justify-content-center welcome-form">
+         <div className="col-sm-6 welcome-form">
            <h3>Welcome</h3>
            <p>Think your hair is healthy? The answer might surprise you. Answer a few questions & get a picture of your hairs current health and get tips on how to nurse it back to a shiny.</p>
          </div>

@@ -79,6 +79,14 @@ main{
     border-color: #83cbcc !important;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
+.table-padding {
+  padding: 20px 20px 10px;
+}
+
 @media only screen and (max-width: 1046px) {
   .heading-banner {
     height: 250px;

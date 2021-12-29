@@ -1,7 +1,7 @@
 const ProgressBar = ({ progress }) => {
   return(
-    <div className="row justify-content-center">
-        <div className="col-sm-6 quiz-wizard">
+    <div className="row justify-content-center welcome-form">
+        <div className="col-sm-6 welcome-form">
           <div className="progress">
             <div
               className="progress-bar bg-info"

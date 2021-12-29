@@ -1,130 +1,87 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { getHairReport, getHairGoal, createReport } from './cta.constants.js';
+import { CircleIcon, CheckCircleFillIcon } from '@primer/octicons-react'
 
 const CTASection = () => {
 
   const profile = useSelector((state) => state.leadProfile);
-  const {
-    dermatologist,
-    styling,
-    dandruff,
-    medications,
-    type,
-    scalp,
-    thickness,
-    hair_loss,
-    username,
-    volume } = profile;
-
-  console.log(profile);
-
-  const createReport = () => {
-    let report = 'Mild';
-    if (dermatologist === 'Yes' && medications=== "Yes") {
-      report = 'Severe'
-    } else if (dermatologist === 'Yes' && styling) {
-      report = 'Severe'
-    } else if (dermatologist === 'Yes' || styling) {
-      report = 'Moderate'
-    } else if (dandruff === 'Yes' && medications === 'Yes') {
-      report = 'Moderate'
-    }
-    return report;
-  }
-
-  useEffect(() => {
-    createReport();
-  }, []);
-
-  const hairReport = [
-    {
-      key: 'Hair Type',
-      value: type,
-      action: 'All Good'
-    },
-    {
-      key: 'Thickness',
-      value: thickness,
-      action: 'All Good'
-    },
-    {
-      key: 'Dandruff',
-      value: dandruff,
-      action: 'All Good'
-    },
-    {
-      key: 'Hair Loss',
-      value: hair_loss,
-      action: 'All Good'
-    },
-    {
-      key: 'Scalp',
-      value: scalp,
-      action: 'All Good'
-    },
-    {
-      key: 'Volume',
-      value: volume,
-      action: 'All Good'
-    },
-    {
-      key: 'Damage',
-      value: createReport(),
-      action: 'All Good'
-    }
-  ]
+  const hairReport = getHairReport(profile);
+  const hairGoal = getHairGoal(profile.goal, profile.dandruff);
 
   return (
     <div>
-      <div className="row justify-content-center">
+      <div className="row justify-content-center welcome-form">
         <div className="col-sm-6 welcome-form">
-          <h3>{username}'s Hair Report</h3>
+          <h3 className="capitalize">Hello {profile.username}</h3>
+          <p>Health of your hair depands on how you treat them with different products. Your hair damage seems <strong>{createReport(profile.styling).toUpperCase()}</strong>. Please find you Current Hair Analysis Report below.</p>
         </div>
       </div>
       <div className="row justify-content-center">
-          <div className="col-sm-6  welcome-form text-left">
-              <table className="table table-info table-striped">
-                <thead>
-                    <tr>
-                      <th>Title</th>
-                      <th>Details</th>
-                      <th>Actions</th>
+          <div className="col-sm-6 welcome-form text-left">
+            <table className="table table-info table-striped">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Details</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {hairReport.map((item) => {
+                  return (
+                    <tr key={item.key}>
+                      <th>{item.key}</th>
+                      <td>{item.value}</td>
+                      <td>{item.action}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    {hairReport.map((item) => {
-                      return (
-                        <tr key={item.key}>
-                          <th>{item.key}</th>
-                          <td>{item.value}</td>
-                          <td>{item.action}</td>
-                        </tr>
-                      )
-                    })
-                    }
-                </tbody>
-              </table>
-          </div>
-      </div>
-    </div>
-  );
-
-  return (
-    <div>
-      <div className="row justify-content-center">
-          <div className="col-sm-6 quiz-wizard">
-            <div className="alert alert-success" role="alert">
-              CONGRATULATIONS...! You have completed the test. We are reviewing your details and will be mailing you the final report.
-            </div>
+                  )
+                })
+                }
+              </tbody>
+            </table>
           </div>
       </div>
       <div className="row justify-content-center">
-          <div className="col-sm-6">
-            <div className="welcome-form">
-              <p>Based on your answers, we have found a <a href="http://paisaapps.dvnlocks.hop.clickbank.net/?tid=facebook" className="link-danger">SOLUTION</a> for your hair problems. Cick on the button below.</p>
-              <a href="http://paisaapps.dvnlocks.hop.clickbank.net/?tid=facebook" className="btn btn-danger btn-lg">Show Me The Solution</a>
-            </div>
+        <div className="col-sm-6 ">
+          <hr />
+        </div>
+      </div>
+      <div className="row justify-content-center welcome-form">
+        <div className="col-sm-6 welcome-form">
+          <h3>Hair Goal - Recommended Solution</h3>
+        </div>
+      </div>
+      <div className="row justify-content-center">
+        <div className="col-sm-6 welcome-form text-left">
+          <div className="border table-padding">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th colSpan="2">Hair Goal</th>
+                  <th>Recommended Ingredients</th>
+                </tr>
+              </thead>
+              <tbody>
+                {hairGoal.map((item) => {
+                  return (
+                    <tr key={item.goal}>
+                      <td>
+                        {item.active ?
+                          <CheckCircleFillIcon size={16} fill="#dc3545" />
+                          :
+                          <CircleIcon size={16}  /> }
+                      </td>
+                      <td>{item.goal}</td>
+                      <td>{item.solution}</td>
+                    </tr>
+                  )
+                })
+                }
+              </tbody>
+            </table>
           </div>
+        </div>
       </div>
     </div>
   );

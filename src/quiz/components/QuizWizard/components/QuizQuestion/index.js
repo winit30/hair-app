@@ -45,8 +45,8 @@ const QuizQuestion = ({data, visiblity, handleNext, handlePrev, diablePrevButton
 
    return (
      <>
-       <div className="row justify-content-center">
-           <div className="col-sm-6 quiz-wizard">
+       <div className="row justify-content-center welcome-form">
+           <div className="col-sm-6 welcome-form">
                <h4>{data.question}</h4>
                <p>{data.desc}</p>
                {isError && <p className="text-danger">Please answer the question.</p>}
@@ -62,6 +62,7 @@ const QuizQuestion = ({data, visiblity, handleNext, handlePrev, diablePrevButton
                     <MultiSelect
                       options={data.options}
                       type={data.type}
+                      id={data.id}
                       multiple={data.multiple}
                       answer={answer}
                       handleAnswerClick={handleAnswerClick} />
