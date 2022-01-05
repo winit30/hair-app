@@ -17,14 +17,10 @@ body{
     background-color: #fffeeb;
 }
 
-main{
-    width: 100%;
+.main-cont{
     min-height: 100vh;
-    background: url('assets/bg.png');
-    background-color : black;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .quiz-container {
@@ -74,8 +70,19 @@ main{
     background-color: #83cbcc !important;
 }
 
-.bg-white {
-  background-color: #ffffff;
+.bg-grey {
+  background-color: #eeebcf;
+}
+
+.header-cont {
+  height: 2px;
+  background-color: #edebcf;
+}
+
+.footer-cont {
+  background-color: #edebcf;
+  position: absolute;
+  bottom: 0
 }
 
 .btn-info {
@@ -89,6 +96,10 @@ main{
 
 .table-padding {
   padding: 20px 20px 10px;
+}
+
+.table-padding-top {
+  padding: 20px 0 10px;
 }
 
 @media only screen and (max-width: 1046px) {

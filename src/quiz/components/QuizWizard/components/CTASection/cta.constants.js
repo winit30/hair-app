@@ -1,7 +1,6 @@
 
 
 const createReport = (styling) => {
-  console.log(styling);
   let report = 'Mild';
   if (styling?.length > 1) {
     report = 'Severe'

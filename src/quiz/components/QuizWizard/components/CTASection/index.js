@@ -19,27 +19,29 @@ const CTASection = () => {
       </div>
       <div className="row justify-content-center">
           <div className="col-md-6 welcome-form text-left">
-            <table className="table table-info table-striped table-responsive">
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Details</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {hairReport.map((item) => {
-                  return (
-                    <tr key={item.key}>
-                      <th>{item.key}</th>
-                      <td>{item.value}</td>
-                      <td>{item.action}</td>
-                    </tr>
-                  )
-                })
-                }
-              </tbody>
-            </table>
+            <div className="table-padding-top table-responsive-md">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Details</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {hairReport.map((item) => {
+                    return (
+                      <tr key={item.key}>
+                        <th>{item.key}</th>
+                        <td>{item.value}</td>
+                        <td>{item.action}</td>
+                      </tr>
+                    )
+                  })
+                  }
+                </tbody>
+              </table>
+              </div>
           </div>
       </div>
       <div className="row justify-content-center">
@@ -49,12 +51,12 @@ const CTASection = () => {
       </div>
       <div className="row justify-content-center welcome-form">
         <div className="col-md-6 welcome-form">
-          <h3>Hair Goal - Recommended Solution</h3>
+          <h3>Hair Goal - Recommended Ingredients</h3>
         </div>
       </div>
       <div className="row justify-content-center">
         <div className="col-md-6 welcome-form text-left">
-          <div className="border table-padding table-responsive-md bg-white">
+          <div className="table-padding table-responsive-md bg-grey">
             <table className="table">
               <thead>
                 <tr>
