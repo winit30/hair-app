@@ -1,10 +1,11 @@
 
 
 const createReport = (styling) => {
+  console.log(styling);
   let report = 'Mild';
   if (styling?.length > 1) {
     report = 'Severe'
-  } else if (styling?.length === 1) {
+  } else if (styling?.length === 1 && styling[0] !== "None of the above") {
     report = 'Moderate'
   }
   return report;

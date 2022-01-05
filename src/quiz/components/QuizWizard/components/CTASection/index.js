@@ -54,7 +54,7 @@ const CTASection = () => {
       </div>
       <div className="row justify-content-center">
         <div className="col-md-6 welcome-form text-left">
-          <div className="border table-padding table-responsive-md">
+          <div className="border table-padding table-responsive-md bg-white">
             <table className="table">
               <thead>
                 <tr>

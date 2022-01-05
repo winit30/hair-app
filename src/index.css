@@ -14,7 +14,7 @@ html, body{
 body{
     font-family: 'Montserrat', serif;
     color: #343a40;
-    background-color: #ffffff; /* background-color: #fffeeb */
+    background-color: #fffeeb;
 }
 
 main{
@@ -72,6 +72,10 @@ main{
 
 .bg-info {
     background-color: #83cbcc !important;
+}
+
+.bg-white {
+  background-color: #ffffff;
 }
 
 .btn-info {
