@@ -1,91 +1,23 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getHairReport, getHairGoal, createReport } from './cta.constants.js';
-import { CircleIcon, CheckCircleFillIcon } from '@primer/octicons-react'
+import { getHairReport, getHairGoal, createReport, hairRoutine } from './cta.constants.js';
+import SalesLetter from './components/SalesLetter';
+import Goals from './components/Goals';
+import Report from './components/Report';
 
 const CTASection = () => {
 
   const profile = useSelector((state) => state.leadProfile);
   const hairReport = getHairReport(profile);
   const hairGoal = getHairGoal(profile.goal, profile.dandruff);
+  const damage = createReport(profile.styling).toUpperCase();
 
   return (
-    <div>
-      <div className="row justify-content-center welcome-form">
-        <div className="col-md-6 welcome-form">
-          <h3 className="capitalize">Hello {profile.username}</h3>
-          <p>Health of your hair depands on how you treat them with different products. Your hair damage seems <strong>{createReport(profile.styling).toUpperCase()}</strong>. Please find you Current Hair Analysis Report below.</p>
-        </div>
-      </div>
-      <div className="row justify-content-center">
-          <div className="col-md-6 welcome-form text-left">
-            <div className="table-padding-top table-responsive-md">
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>Details</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {hairReport.map((item) => {
-                    return (
-                      <tr key={item.key}>
-                        <th>{item.key}</th>
-                        <td>{item.value}</td>
-                        <td>{item.action}</td>
-                      </tr>
-                    )
-                  })
-                  }
-                </tbody>
-              </table>
-              </div>
-          </div>
-      </div>
-      <div className="row justify-content-center">
-        <div className="col-md-6 ">
-          <hr />
-        </div>
-      </div>
-      <div className="row justify-content-center welcome-form">
-        <div className="col-md-6 welcome-form">
-          <h3>Hair Goal - Recommended Ingredients</h3>
-        </div>
-      </div>
-      <div className="row justify-content-center">
-        <div className="col-md-6 welcome-form text-left">
-          <div className="table-padding table-responsive-md bg-grey">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th colSpan="2">Hair Goal</th>
-                  <th>Recommended Ingredients</th>
-                </tr>
-              </thead>
-              <tbody>
-                {hairGoal.map((item) => {
-                  return (
-                    <tr key={item.goal}>
-                      <td>
-                        {item.active ?
-                          <CheckCircleFillIcon size={16} fill="#dc3545" />
-                          :
-                          <CircleIcon size={16}  /> }
-                      </td>
-                      <td>{item.goal}</td>
-                      <td>{item.solution}</td>
-                    </tr>
-                  )
-                })
-                }
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <Report hairReport={hairReport} profile={profile} damage={damage} />
+      <Goals hairGoal={hairGoal} />
+      <SalesLetter />
+    </>
   );
 }
 export default CTASection;

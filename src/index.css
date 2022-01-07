@@ -50,6 +50,10 @@ body{
   text-align: center;
 }
 
+.marginTop15 {
+  margin-top: 20px;
+}
+
 .same-width {
   width: 100%;
 }

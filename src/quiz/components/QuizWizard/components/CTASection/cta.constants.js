@@ -43,11 +43,6 @@ const getHairReport = (profile) => {
         action: 'All Good'
       },
       {
-        key: 'Thickness',
-        value: thickness,
-        action: 'All Good'
-      },
-      {
         key: 'Dandruff',
         value: dandruff,
         action: dandruff === 'Yes' ? 'Action required' : 'All Good'
@@ -60,17 +55,17 @@ const getHairReport = (profile) => {
       {
         key: 'Scalp',
         value: scalp,
-        action: 'All Good'
+        action: (scalp === 'Dry' || scalp === 'Very Dry') ? 'Action required' : 'All Good'
       },
       {
         key: 'Volume',
         value: volume,
-        action: 'All Good'
+        action: volume === 'Low Volume' ? 'Action required' : 'All Good'
       },
       {
         key: 'Styling',
         value: getStyling(styling),
-        action: styling ? 'Action required' : 'All Good'
+        action: getStyling(styling).trim() !== 'None' ? 'Action required' : 'All Good'
       },
       {
         key: 'Damage',
